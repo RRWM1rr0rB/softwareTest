@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  postgresql:
+    image: postgres:16.0-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: testtest
+      POSTGRES_DB: software
+
+  grafana-agent:
+    image: grafana/agent:latest
+    container_name: test-grafana-agent
+    restart: on-failure
+    environment:
+      - AGENT_MODE=flow
+    volumes:
+      - ./docker-compose-configs/grafana-agent/etc/config.river/:/etc/agent-config
+    ports:
+      - "4318:4318"
+    entrypoint:
+      - /bin/grafana-agent
+      - run
+      - /etc/agent-config/config.river
+
+networks:
+  default:
+    name: software

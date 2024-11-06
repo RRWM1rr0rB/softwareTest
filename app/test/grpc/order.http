@@ -1,0 +1,33 @@
+### Order Search: id_val;
+GRPC localhost:9994/proto/order_service/v1/OrderService/SearchOrder
+
+{
+  "sort": {
+    "desc": true,
+    "field": "order.created_at"
+  },
+  "pagination": {
+    "limit": 2000,
+    "offset": 0
+  }
+}
+
+### Order Switch Status;
+GRPC 0.0.0.0:9994/proto/order_service/v1/OrderService/SwitchStatusOrder
+
+{
+  "id": "81f49fdf-86b6-4768-baec-7377b82f9860",
+  "status": "sent"
+}
+
+### Order Create;
+GRPC 0.0.0.0:9994/proto/order_service/v1/OrderService/CreateOrder
+
+{
+  "item": 77500,
+  "price": "10.76",
+  "status": "create",
+  "type_product": "breakable",
+  "user_id": "125"
+}
+

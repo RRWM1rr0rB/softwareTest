@@ -1,0 +1,24 @@
+### GET request to example server
+# curl -X POST http://localhost:8082/create_order
+#-H "Content-Type: application/json"
+#-d '{
+#    "user_id": 1,
+#    "status": "create",
+#    "type_product": "breakable",
+#    "price": 10.50,
+#    "package": 5
+#}'
+POST http://localhost:8082/create_order
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "status": "create",
+  "type_product": "breakable",
+  "price": 10.50,
+  "package": 2750
+}
+
+
+###
+

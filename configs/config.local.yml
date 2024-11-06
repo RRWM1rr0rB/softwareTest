@@ -1,0 +1,48 @@
+app:
+  id: 1
+  name: software-test
+  version: 1.0
+  is_dev: true
+  log_level: debug
+  is_log_json: true
+
+http:
+  host: 0.0.0.0
+  port: 8082
+  read_header_timeout: 3s
+
+grpc:
+  host: 0.0.0.0
+  port: 9994
+  health_check_interval: 10s
+
+postgres:
+  host: localhost
+  user: postgres
+  password: testtest
+  port: 5432  # Измените на 5432
+  database: trade
+  max_attempt: 3
+  max_delay: 3s
+  binary: false
+
+metrics:
+  host: localhost
+  port: 8081
+  read_timeout: 3s
+  write_timeout: 3s
+  read_header_timeout: 3s
+  enabled: true
+
+  tracing:
+    enabled: true
+    host: 0.0.0.0
+    port: 4318
+
+packs_size:
+  pack_size:
+    - 5000
+    - 2000
+    - 1000
+    - 500
+    - 250
